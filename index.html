@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>art_appliques</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+            *{
+                margin: 0;
+                font-family: "Pixelify Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+                box-sizing: border-box;
+                text-decoration: none;
+            }
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            #parent{
+                background:linear-gradient(10deg,red,yellow);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* color: white; */
+                min-height: 100vh;
+                width: 100vw;
+
+            }
+            #header{
+                background:rgb(192, 76, 228) ;
+                height: 200px;
+                width: 100vw;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                align-items: center;
+                margin: 0.2%;
+                padding: 2%;
+                /* box-shadow: -10px 10px 0px black; */
+                /* border: 3px solid black; */
+                
+            }
+            #header h1{
+                font-size: 200%;
+                font-weight: 700;
+                color: rgb(233, 255, 32);
+            }
+            #container{ 
+                /* background:linear-gradient(30deg,rgb(57, 247, 241),rgb(246, 200, 18)); */
+                height: 600px;
+                width: 1024px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                transition: height 0.7s ease;
+
+
+            }
+            #container h1{
+                position: absolute;
+                background: rgb(238, 255, 0);
+                padding: 0.7%;
+                border-radius: 20px;
+                box-shadow: 0px 0px 10px rgb(92, 92, 91);
+                transition: all 0.3s ease;
+                cursor: pointer;
+                top:-80px;
+                color: blue;
+
+            }
+            #container img{
+                width: 30%;
+                box-shadow: 0px 0px 10px black;
+
+            }
+            #container:hover h1{
+               
+                top:80%
+            }
+            #container h1:hover{
+                /* background: rgb(215, 31, 225); */
+                box-shadow: 0px 0px 20px black;
+                /* top: 0; */
+                
+
+            }
+            #footer{
+                background:rgb(139, 212, 54);
+                height: 100px;
+                width:100%; 
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+
+            }
+
+
+        </style>
+    </head>
+    <body>
+        
+        <div id="parent">
+                <!-- ici header -->
+            <div id="header">
+                <h1>Flip Lion Ordinals</h1>
+            </div>
+
+            <!-- fin header -->
+
+            <!-- ici container -->
+            <div id="container">
+                <h1><a href="#">collection</a></h1>
+                <img src="images/1.JPG" alt="logo">
+            </div>
+            <!-- fin container -->
+
+            <!-- ici footer -->
+            <div id="footer">
+                <h1>BTC Collection</h1>
+                <p>copyright 2024 </p>
+            </div>
+            <!-- fin footer -->
+            </div>
+
+       <script>
+           var container = document.getElementById('container');
+           var header =document.getElementById('header');
+           var image= container.getElementsByTagName('img');
+                 
+           
+       
+           function change1(){
+            let y=image[0].getAttribute('src');
+            let w=y.split('/');
+            let w1=w[1].split('.');
+            let m=Number(w1[0]);
+            if(m<13){
+                console.log(Number(m));
+                m++;
+                
+                // if(image[0].getAttribute('src') == 'images/05.JPG'){
+                        image[0].setAttribute('src',`images/${m}.JPG`);
+                    // }else
+                    // image[0].setAttribute('src','images/05.JPG');
+                    
+                    
+                }else
+                {m=1;
+                image[0].setAttribute('src',`images/${m}.JPG`);}
+            }
+        
+           image[0].addEventListener('click',change1);
+        
+        // ====================================
+           header.addEventListener('click',function(){
+
+            if(getComputedStyle(container).height > '0px' ){
+                container.style.height='0px';
+            }else
+            container.style.height='600px';
+
+           });
+           setInterval(change1,500);
+
+       </script>
+        
+    </body>
+</html>
