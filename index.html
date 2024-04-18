@@ -149,15 +149,15 @@
                 console.log(Number(m));
                 m++;
                 
-                // if(image[0].getAttribute('src') == 'images/05.JPG'){
-                        image[0].setAttribute('src',`images/${m}.JPG`);
+                // if(image[0].getAttribute('src') == '05.JPG'){
+                        image[0].setAttribute('src',`${m}.JPG`);
                     // }else
-                    // image[0].setAttribute('src','images/05.JPG');
+                    // image[0].setAttribute('src','05.JPG');
                     
                     
                 }else
                 {m=1;
-                image[0].setAttribute('src',`images/${m}.JPG`);}
+                image[0].setAttribute('src',`${m}.JPG`);}
             }
         
            image[0].addEventListener('click',change1);
